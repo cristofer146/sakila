@@ -1,0 +1,9 @@
+mi pagina web: tedivina.000webhostapp.com
+
+conexion FTP
+
+servidor: files.000webhost.com
+nombre ususario:tedivina
+contraseña:8091234567
+
+informacion de base de datos
