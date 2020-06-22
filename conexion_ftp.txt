@@ -4,6 +4,6 @@ conexión FTP
 
 servidor: files.000webhost.com
 nombre ususario:tedivina
-contraseña:8091234567
+contraseña:12345678
 
 informacion de base de datos
