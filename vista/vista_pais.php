@@ -8,41 +8,25 @@
 
 </head>
 <body>
-
-<div class="container">
-<h1>Bienbenidos a la página principa<h1>
+<h1>Bienbenidos a la página principal <?php echo $nombrepagina; ?> <h1>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=" ">Inicio</a>
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="actor.php">Actor</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="ciudad.php">Ciudad</a>
+                <a class="nav-link" href="ciudad.php">ciudad</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pais.php">Pais</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="cliente.php">Clinte</a>
+                <a class="nav-link" href="pais.php">pais</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="pelicula.php">Pelicula</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="idioma.php">Idioma</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="personal.php">personal</a>
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">disabled</a>
             </li>
         </ul>
-
-</div>
 
 </body>
 </html>
