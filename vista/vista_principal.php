@@ -1,48 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $nombrepagina; ?></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+<?php include_once "partes/parte_head.php"; ?>
 
-</head>
 <body>
 
-<div class="container">
-<h1>Bienbenidos a la página principa<h1>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href=" ">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="actor.php">Actor</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ciudad.php">Ciudad</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="pais.php">Pais</a>
-            </li>
+<!-- barra superior -->
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        sakila
+    </a>
+</nav>
 
-            <li class="nav-item">
-                <a class="nav-link" href="cliente.php">Clinte</a>
-            </li>
+<!-- contenido -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+           <?php include_once "partes/parte_menu.php"; ?>
+        </div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="pelicula.php">Pelicula</a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="idioma.php">Idioma</a>
-            </li>
+        <div class="col-md-9">
+          <h2> <?php echo $nombrepagina; ?><di>
 
-            <li class="nav-item">
-                <a class="nav-link" href="personal.php">personal</a>
-            </li>
-        </ul>
+                  <div class="row">
+                      <div class="col-md-5"
+                      <form action="" method="get"
+                          <div class="mb-3">
+                              <label for="imputNombre" class="form-label">Nombre:  </label>
+                              <input type="text" class="form-control" id="imputNombre" placeholder="Escribe tu nombre">
+                          </div>
+
+                      <div class="mb-3">
+                          <label for="imputCiudad">Ciudad:</label>
+                          <input type="text" class="form-control" id="imputCiudad" placeholder="Escribe la ciudad">
+
+                       </div>
+
+                      </form>
+                  </div>
+              </di>
+
+
+
+
+
+               <hr>
+
+
+
+                  <p>Nombre: <?php echo $nombre; ?> <p>
+                  <p>Ciudad: <?php echo $ciudad;  ?> <p>
+                  <p>Edad: <?php echo $edad; ?><p>
+                  <p>Busqueda: <?php echo  $q; ?><p>
+                  <p>Monto: <?php echo $monto; ?><p>
+        </div>
+
+    </div>
 
 </div>
 
+
+
+
+
 </body>
-</html>
