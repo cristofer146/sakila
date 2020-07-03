@@ -3,7 +3,7 @@
 require_once "funciones/ayudante.php";
 
 
-$nombrepagina = "Principal";
+$nombrepagina = "principal";
 
 
 //imprimirArray($_GET);

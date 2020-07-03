@@ -1,3 +1,5 @@
+
+
 <?php include_once "partes/parte_head.php"; ?>
 
 <body xmlns="http://www.w3.org/1999/html">
@@ -24,3 +26,14 @@
 
 
 </body>
+
+
+
+
+
+
+
+
+
+
+
