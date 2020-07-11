@@ -5,7 +5,16 @@ require_once "funciones/ayudante.php";
 
 $nombrepagina = "Dirección";
 
-imprimirArray($_GET);
+//Incluir los modelos
+require_once "modelo/modelo_ciudad.php";
+
+$ciudades = obtenerCiudades($conexion);
+
+//imprimirArray($ciudades);
+
+//imprimirArray($ciudades);
+
+//imprimirArray($_GET);
 
 $direccion = $_GET['direccion'] ?? "";
 

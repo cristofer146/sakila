@@ -1,5 +1,7 @@
 
 <?php
+
+
 $paginasMenu = [
 
     "index"     => ["Inicio", "fas fa-home"],
@@ -24,13 +26,12 @@ foreach ($paginasMenu as $nombreArchivo => $pagina) {
 
     echo " <a class=\"nav-link active\" id=\"v-pills-home-tab\" data-toggle=\"pill\" href=\"{$nombreArchivo}.php\" role=\"tab\" aria-controls=\"v-pills-home\" aria-selected=\"true\">
                  <i class=\"{$icono}\"></i>
-                 {$textoPagina}
-                 
+                 {$textoPagina}   
         </a>";
 
-
-
 }
+
+?>
 
 
 

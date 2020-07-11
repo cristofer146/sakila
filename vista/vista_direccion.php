@@ -4,9 +4,9 @@
 <body xmlns="http://www.w3.org/1999/html">
 
 <!-- barra superior -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="../static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
         sakila
     </a>
 </nav>
@@ -47,7 +47,19 @@
                         <div class="mb-3">
                             <label for="Ciudad">Ciudad</label>
                             <select name="ciudad" id="ciudad" class="form-select">
-                                    <option value="">Aqui va el listado de la ciudad, desde SQL</option>
+                                    <option value="">Elige una ciudad</option>
+
+                                <?php
+
+                                foreach ($ciudades as $ciudad) {
+
+                                    echo "<option value=\"{$ciudad["city_id"]}\">{$ciudad["city"]}</option>";
+                                }
+
+
+                                ?>
+
+
                             </select>
 
 

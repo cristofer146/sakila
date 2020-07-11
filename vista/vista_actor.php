@@ -20,9 +20,13 @@
 
         <div class="col-md-10">
             <h2> <?php echo $nombrepagina; ?> </h2>
-                <hr>
 
-                <div class="row">
+
+            <hr>
+
+
+
+            <div class="row">
                     <div class="col-md-5">
 
 
@@ -56,8 +60,55 @@
                         ?>
 
                     </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <table class="table">
+                        <thead>
+
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        </thead>
+                        <tbody>
+
+
+                        <?php
+
+                      foreach ($actores as $actor) {
+
+                       echo "<tr>
+                              <th scope=\"row\">{$actor['actor_id']}</th>
+                              <td>{$actor['first_name']}</td>
+                              <td>{$actor['last_name']}</td>
+                        </tr>";
+
+                         }
+                        ?>
+
+                        </tbody>
+                    </table>
+
                 </div>
+
+
+            </div>
+
+
         </div>
 
+
+
+
     </div>
+
+
+<div class="row">
+
+
+
 </div>

@@ -19,8 +19,79 @@
 
 
         <div class="col-md-10">
-            <h2> <?php echo $nombrepagina; ?>
-        </div>
+            <h2> <?php echo $nombrepagina; ?></h2>
+
+
+                <div class="col-md-5">
+
+
+
+                        <form action="" method="get">
+
+                            <label class="mt-5" for="personal">personal:<label
+                                <select class="form-select" name="personal" id="personal">
+                                    <option value="">seleciona un personal</option>
+
+
+
+
+
+
+
+                     <hr>
+
+
+
+
+
+
+                    <div class="row">
+
+                        <table class="table">
+
+
+                           <thead>
+                               <th>ID de la tienda</th>
+                               <th>Gerente de la tienda</th>
+                               <th>Direccion de la tienda</th>
+
+                           </thead>
+
+                            <tbody>
+
+                            <?php
+
+                            foreach ($informacionTiendas as $infotienda){
+
+
+
+                              echo "
+                               <tr>
+
+                            <td>{$infotienda['store_id']} </td>
+
+                            <td> {$infotienda['first_name']}</td>
+
+                            <td>{$infotienda['address']} </td>
+
+                            </tr>";
+
+                            }
+
+
+
+                            ?>
+
+
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
 
 
 </body>

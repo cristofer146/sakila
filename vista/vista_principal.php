@@ -3,9 +3,9 @@
 <body xmlns="http://www.w3.org/1999/html">
 
 <!-- barra superior -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="static/img/descarga.jpg" width="29" height="29" alt="" loading="lazy">
         sakila
     </a>
 </nav>

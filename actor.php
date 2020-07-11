@@ -1,6 +1,7 @@
 <?php
 
 require_once "funciones/ayudante.php";
+require_once  "modelo/modelo_actor.php";
 
 $nombrepagina = "Actor";
 
@@ -16,6 +17,11 @@ if (isset($_GET['guardar_actor'])) {
   // codigo para guardar en la base de datos
 echo "Se van a guardar los datos...";
 }
+
+
+$actores = obtenerActores($conexion);
+
+
 
 
 
