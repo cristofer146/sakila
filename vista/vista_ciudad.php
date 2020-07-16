@@ -1,5 +1,5 @@
 
-<?php include_once "partes/parte_head.php"; ?>
+<?php include_once "componentes/comp_head.php"; ?>
 
 <body>
 <nav class="navbar navbar-light bg-primary">
@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <?php include_once "partes/parte_menu.php"; ?>
+            <?php include_once "componentes/comp_menu.php"; ?>
         </div>
 
 
@@ -22,6 +22,41 @@
 
             <div class="row">
                 <div class="col-md-5">
+
+                 <form>
+                    <div class="mb-3">
+                        <label for="distrito">Distrito</label>
+                        <input type="text" name="distrito" id="distrito" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="pais">Ciudad</label>
+                        <select name="pais" id="pais" class="form-select">
+                            <option value="">Elige un pais</option>
+
+
+
+
+
+                            <?php
+
+                            foreach ($paises as $pais) {
+
+                                echo "<option value=\"{$pais["country_id"]}\">{$pais["country"]}</option>";
+                            }
+
+
+                            ?>
+                        </select>
+
+                    </div>
+
+                     <div class="mb-3">
+                         <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
+                     </div>
+
+                </form>
+
 
 
 

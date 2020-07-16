@@ -1,5 +1,5 @@
 
-<?php include_once "partes/parte_head.php"; ?>
+<?php include_once "componentes/comp_head.php"; ?>
 
 <body xmlns="http://www.w3.org/1999/html">
 
@@ -12,10 +12,10 @@
 </nav>
 
 <!-- contenido -->
-<div class="container-fluid">
+ <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <?php include_once "partes/parte_menu.php"; ?>
+            <?php include_once "componentes/comp_menu.php"; ?>
         </div>
 
 
@@ -86,10 +86,47 @@
 
                     </form>
 
+
+                    <div class="row">
+                        <div class="col-md-13">
+
+                            <table class="table table-hover">
+                                <thead>
+
+                                <th scope="col">ID de dirección</th>
+
+                                <th scope="col">Nombre de dirección</th>
+                                </thead>
+                                <tbody>
+
+
+                                <?php
+
+                                foreach ($direcciones as $Direcciones) {
+
+                                    echo "<tr>
+                                  <th scope=\"row\">{$Direcciones['address_id']}</th>
+                              
+                                    <td>{$Direcciones['address']}</td>
+                                    
+                                  </tr>";
+
+                                }
+                                ?>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+
+                    </div>
+
                 </div>
 
             </div>
         </div>
+   </div>
 </div>
 
 

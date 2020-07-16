@@ -7,10 +7,13 @@ $nombrepagina = "Dirección";
 
 //Incluir los modelos
 require_once "modelo/modelo_ciudad.php";
+require_once "modelo/modulo_direccion.php";
+
+$direcciones = obtenerDirecciones($conexion);
 
 $ciudades = obtenerCiudades($conexion);
 
-//imprimirArray($ciudades);
+///imprimirArray($direccion);
 
 //imprimirArray($ciudades);
 

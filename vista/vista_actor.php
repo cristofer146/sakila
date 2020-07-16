@@ -1,11 +1,11 @@
-<?php include_once "partes/parte_head.php"; ?>
+<?php include_once "componentes/comp_head.php"; ?>
 
 <body xmlns="http://www.w3.org/1999/html">
 
 <!-- barra superior -->
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
         sakila
     </a>
 </nav>
@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <?php include_once "partes/parte_menu.php"; ?>
+            <?php include_once "componentes/comp_menu.php" ?>
         </div>
 
 
@@ -32,14 +32,14 @@
 
                         <form action="actor.php" method="get">
                             <div class="mb-4">
-                                <label for="nombreActor">Primer nombre del actor</label>
-                                <input type="text"  name="nombreActor" id="nombreActor" class="form-control">
+                                <label for="nombreActor">Nombre:</label>
+                                <input type="text"  name="nombreActor" id="nombreActor" class="form-control" placeholder="Digite el nombre">
                             </div>
 
 
                             <div class="mb-4">
-                                <label for="apellidoActor">Apellido del Actor</label>
-                                <input type="text" id="apellidoActor" name="apellidoActor" class="form-control">
+                                <label for="apellidoActor">Apellido:</label>
+                                <input type="text" id="apellidoActor" name="apellidoActor" class="form-control" placeholder="Digite el apellido">
 
                             </div>
 
@@ -49,7 +49,7 @@
 
                         </form>
 
-                        <hr>
+
 
                         <?php
 
@@ -62,7 +62,7 @@
                     </div>
             </div>
 
-
+               <hr>
 
             <div class="row">
                 <div class="col-md-12">
@@ -107,7 +107,7 @@
     </div>
 
 
-<div class="row">
+
 
 
 

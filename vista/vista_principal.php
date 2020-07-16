@@ -1,4 +1,4 @@
-<?php include_once "partes/parte_head.php"; ?>
+<?php include_once "componentes/comp_head.php"; ?>
 
 <body xmlns="http://www.w3.org/1999/html">
 
@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-           <?php include_once "partes/parte_menu.php"; ?>
+           <?php include_once "componentes/comp_menu.php"; ?>
         </div>
 
 

@@ -1,5 +1,11 @@
 <?php
 
+
+function incluir_vista($nombre){
+    include_once "vista/vista_{$nombre}.php";
+
+}
+
 function reportarErrores($numero, $mensage,$archivo,$linea) {
 
     $codigos = [

@@ -18,16 +18,21 @@ $paginasMenu = [
 
 ];
 
+$url= $_SERVER['REQUEST_URI'];
+foreach ($paginasMenu as $nombreArchivo => $item) {
+    $paginaActual= '';
+    if(strpos($url,$nombreArchivo)){
+       $paginaActual= 'activo';
+    }
 
-foreach ($paginasMenu as $nombreArchivo => $pagina) {
+    $icono = $item[1];
+    $textoPagina = $item[0];
 
-    $icono = $pagina[1];
-    $textoPagina = $pagina[0];
+    echo "<a class=\"nav-link {$paginaActual}\" href=\"{$nombreArchivo}.php\"> <i class=\"{$icono}\"></i> {$textoPagina}</a>";
 
-    echo " <a class=\"nav-link active\" id=\"v-pills-home-tab\" data-toggle=\"pill\" href=\"{$nombreArchivo}.php\" role=\"tab\" aria-controls=\"v-pills-home\" aria-selected=\"true\">
-                 <i class=\"{$icono}\"></i>
-                 {$textoPagina}   
-        </a>";
+
+
+
 
 }
 

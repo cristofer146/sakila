@@ -1,0 +1,2 @@
+<label for="direccion">Dirección</label>
+                            <input type="text" name="direccion" id="direccion" class="form-control">
