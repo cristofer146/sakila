@@ -1,0 +1,7 @@
+verificar los nombres en el formulario metodo 
+verificar si en el  controlador estamos esperando el boton 
+ASEGURARNOS de colocar un nombre correcto a las variables
+incluir modelos correpondientes 
+prepara el query en la base de datos y ejecutarlo 
+copiar y pegar el query en el modelo.
+probrar y arreglar errores. 

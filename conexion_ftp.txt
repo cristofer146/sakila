@@ -6,4 +6,13 @@ servidor: files.000webhost.com
 nombre ususario:tedivina
 contraseña:12345678
 
-informacion de base de datos
+informacion de base de datos 000webhost
+host: localhost	
+nombre de base de datos: id12551035_sakila
+usuario:id12551035_christopher_000webhost	
+Contraseña:)AD^ZrPQnD6~VwTX
+
+
+
+
+malditacontraseña

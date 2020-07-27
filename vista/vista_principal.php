@@ -14,13 +14,13 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-           <?php include_once "componentes/comp_menu.php"; ?>
+            <?php include_once "componentes/comp_menu.php"; ?>
         </div>
 
 
         <div class="col-md-10">
-          <h2> <?php echo $nombrepagina; ?>
-              </div>
+            <h2> <?php echo $nombrepagina; ?>
+        </div>
 
 
 </body>

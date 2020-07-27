@@ -23,16 +23,15 @@
             <hr>
 
 
-
-
             <div class="row">
                 <div class="col-md-5">
 
 
-                    <form action="ca.php" method="get">
+                    <form action="ca.php" method="post">
                         <div class="mb-4">
                             <label for="nombreActor">Nombre:</label>
-                            <input type="text"  name="nombreActor" id="nombreActor" class="form-control" placeholder="Digite el nombre">
+                            <input type="text" name="nombreActor" id="nombreActor" class="form-control"
+                                   placeholder="Digite el nombre">
                         </div>
 
                         <div class="mb-4">
@@ -40,40 +39,41 @@
                         </div>
 
 
+                        <div class="row">
+                            <div class="col-md-13">
+
+                                <table class="table table-hover">
+                                    <thead>
+
+                                    <th scope="col">ID de la categoria</th>
+                                    <th scope="col">Nombre del catagoria</th>
+                                    </thead>
+                                    <tbody>
 
 
-                    <div class="row">
-                        <div class="col-md-13">
+                                    <?php
 
-                            <table class="table table-hover">
-                                <thead>
+                                    foreach ($categorias as $categoria) {
 
-                                <th scope="col">ID de la categoria</th>
-                                <th scope="col">Nombre del catagoria </th>
-                                </thead>
-                                <tbody>
-
-
-                                <?php
-
-                                foreach ($categorias as $categoria) {
-
-                                    echo "<tr>
+                                        echo "<tr>
                               <th scope=\"row\">{$categoria['category_id']}</th>
                               <td>{$categoria['name']}</td>
-                        </tr>";
+                              </tr>";
 
-                                }
-                                ?>
+                                    }
+                                    ?>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
+
 
                         </div>
-
-
-                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 </body>

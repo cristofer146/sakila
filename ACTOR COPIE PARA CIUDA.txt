@@ -1,0 +1,66 @@
+<?php
+
+require_once "funciones/ayudante.php";
+require_once "modelo/modelo_pais.php";
+require_once "modelo/modelo_ciudad.php";
+
+
+//imprimirArray($ciudades);
+$nombrepagina = "Ciudad";
+
+$nombreCiudad = $_POST['nombreCiudad'] ?? "";
+
+$pais = $_POST['pais'] ?? "";
+
+
+imprimirArray($_POST);
+
+
+try {
+    if (isset($_POST['[guardarCiudad'])) {
+
+
+        echo "Validar los datos";
+
+        if (empty($nombreCiudad)) {
+            throw new Exception("El nombre de la ciudad no puede estar vacio. ");
+
+
+        }
+
+        if (empty($pais)) {
+            throw new Exception("Debe seleccionar un pais.");
+        }
+
+        //preparar el array con los datos
+
+       $datos = compact('nombreCiudad', 'pais');
+
+
+        //Insertar los datos
+        $ciudadInsertada = insertarCiudades($conexion, $datos);
+
+
+        //Lazar errror en caso si
+        if (!$ciudadInsertada){
+            throw new Exception("Ha ocurrido un error al insertar los datos de la Ciudad");
+        }
+
+
+
+
+
+    }
+} catch (PDOException $e) {
+    $error = $e->getMessage();
+}
+
+
+// Traer los datos de los modelos
+
+$paises = obtenerPaises($conexion);
+$ciudades = obtenerCiudades($conexion);
+
+
+// Incluir la vista
+include_once "vista/vista_ciudad.ph

@@ -5,7 +5,8 @@
 <!-- barra superior -->
 <nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
+             loading="lazy">
         sakila
     </a>
 </nav>
@@ -14,7 +15,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
-            <?php include_once "componentes/comp_menu.php" ?>
+            <?php include_once "componentes/comp_menu.php"; ?>
         </div>
 
 
@@ -25,44 +26,39 @@
             <hr>
 
 
-
             <div class="row">
-                    <div class="col-md-5">
+                <div class="col-md-5">
 
 
-                        <form action="actor.php" method="get">
-                            <div class="mb-4">
-                                <label for="nombreActor">Nombre:</label>
-                                <input type="text"  name="nombreActor" id="nombreActor" class="form-control" placeholder="Digite el nombre">
-                            </div>
+                    <form action="" method="post">
+                        <div class="mb-4">
+                            <label for="nombreActor">Primer nombre del actor</label>
+                            <input type="text" name="nombreActor" id="nombreActor" class="form-control"
+                                   placeholder="Digite el nombre" value="<?= $nombreActor ?>">
+                        </div>
 
 
-                            <div class="mb-4">
-                                <label for="apellidoActor">Apellido:</label>
-                                <input type="text" id="apellidoActor" name="apellidoActor" class="form-control" placeholder="Digite el apellido">
+                        <div class="mb-4">
+                            <label for="apellidoActor">Apellido del actor</label>
+                            <input type="text" id="apellidoActor" name="apellidoActor" class="form-control"
+                                   placeholder="Digite el apellido" value="<?= $apellidoActor?>">
 
-                            </div>
+                        </div>
 
-                            <div class="mb-4">
-                                <button type="submit" name="guardar_actor" class="btn btn-primary">Guardar datos</button>
-                            </div>
+                        <div class="mb-4">
+                            <button type="submit" name="guardar_actor" class="btn btn-primary">Guardar datos</button>
+                        </div>
 
-                        </form>
+                    </form>
 
-
-
-                        <?php
-
-                        echo $nombreActor;
-                        echo $apellidoActor;
+                    <?php  include_once "componentes/parte_navebar.php";?>
 
 
-                        ?>
-
-                    </div>
+                </div>
             </div>
 
-               <hr>
+
+            <hr>
 
             <div class="row">
                 <div class="col-md-12">
@@ -79,15 +75,15 @@
 
                         <?php
 
-                      foreach ($actores as $actor) {
+                        foreach ($actores as $actor) {
 
-                       echo "<tr>
+                            echo "<tr>
                               <th scope=\"row\">{$actor['actor_id']}</th>
                               <td>{$actor['first_name']}</td>
                               <td>{$actor['last_name']}</td>
                         </tr>";
 
-                         }
+                        }
                         ?>
 
                         </tbody>
@@ -102,13 +98,10 @@
         </div>
 
 
-
-
     </div>
 
 
-
-
-
-
 </div>
+
+<?php  include_once "componentes/parte_foot.php";?>
+

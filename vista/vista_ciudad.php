@@ -1,4 +1,3 @@
-
 <?php include_once "componentes/comp_head.php"; ?>
 
 <body>
@@ -10,7 +9,7 @@
 </nav>
 
 <!-- contenido -->
-<div class="container-fluid">
+ <div class="container-fluid">
     <div class="row">
         <div class="col-md-2">
             <?php include_once "componentes/comp_menu.php"; ?>
@@ -23,78 +22,111 @@
             <div class="row">
                 <div class="col-md-5">
 
-                 <form>
-                    <div class="mb-3">
-                        <label for="distrito">Distrito</label>
-                        <input type="text" name="distrito" id="distrito" class="form-control">
-                    </div>
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label for="nombreCiudad">Nombre de la ciudad </label>
+                            <input type="text" name="nombreCiudad" id="nombreCiudad" class="form-control" placeholder="Escribe el nombre de tu ciudad">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="pais">Ciudad</label>
-                        <select name="pais" id="pais" class="form-select">
-                            <option value="">Elige un pais</option>
-
-
+                        <div class="mb-3">
+                            <label for="idPais">Ciudad</label>
+                            <select name="idPais" id="idPais" class="form-select">
+                                <option value="">Seleccione un pais</option>
 
 
+                                <?php
 
-                            <?php
+                                foreach ($paises as $pais) {
 
-                            foreach ($paises as $pais) {
-
-                                echo "<option value=\"{$pais["country_id"]}\">{$pais["country"]}</option>";
-                            }
+                                    echo "<option value=\"{$pais["country_id"]}\">{$pais["country"]}</option>";
+                                }
 
 
-                            ?>
-                        </select>
+                                ?>
+                            </select>
 
-                    </div>
+                        </div>
 
-                     <div class="mb-3">
-                         <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
-                     </div>
+                        <div class="mb-3">
+                            <button type="submit" name="guardar_datos" class="btn btn-primary">Guardar datos</button>
+                        </div>
 
-                </form>
+                    </form>
 
 
 
 
-                <div class="row">
-                    <div class="col-md-13">
+                    <?php
 
-                        <table class="table table-hover">
-                            <thead>
+                    if (isset($error)) {
+                            echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+                            {$error}
+                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                        </div>";
+                    }
 
-                            <th scope="col">ID de la ciudad</th>
-                            <th scope="col">Nombre de la ciuda</th>
-                            <th scope="col">Nombre del pais</th>
-                            </thead>
-                            <tbody>
+
+                    if (isset($ciudadIncertada)) {
+                        echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
+                                Los datos del ciudad se han insertado correctamente.  
+                             <button type=\"button\" class=\"close\" data-dismiss=\'alert\' aria-label=\"close\">
+                              <span aria-hidden=\"true\">&times;</span>
+                             </button>
+                              </div>";
 
 
-                            <?php
+                    }
 
-                            foreach ($ciudades as $ciudad) {
 
-                                echo "<tr>
+
+                    ?>
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-13">
+
+                            <table class="table table-hover">
+                                <thead>
+
+                                <th scope="col">ID de la ciudad</th>
+                                <th scope="col">Nombre de la ciuda</th>
+                                <th scope="col">Nombre del pais</th>
+                                </thead>
+                                <tbody>
+
+
+                                <?php
+
+                                foreach ($ciudades as $ciudad) {
+
+                                    echo "<tr>
                               <th scope=\"row\">{$ciudad['city_id']}</th>
                               <td>{$ciudad['city']}</td>
                               <td>{$ciudad['country']}</td>
-                        </tr>";
+                              </tr>";
 
-                            }
-                            ?>
+                                }
+                                ?>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+
+                        </div>
+
 
                     </div>
-
-
                 </div>
+            </div>
         </div>
+    </div>
+</div>
 
+<?php include_once "componentes/parte_foot.php"; ?>
 
 </body>
 </html>

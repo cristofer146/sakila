@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -18,20 +17,17 @@ $paginasMenu = [
 
 ];
 
-$url= $_SERVER['REQUEST_URI'];
+$url = $_SERVER['REQUEST_URI'];
 foreach ($paginasMenu as $nombreArchivo => $item) {
-    $paginaActual= '';
-    if(strpos($url,$nombreArchivo)){
-       $paginaActual= 'activo';
+    $paginaActual = '';
+    if (strpos($url, $nombreArchivo)) {
+        $paginaActual = 'activo';
     }
 
     $icono = $item[1];
     $textoPagina = $item[0];
 
     echo "<a class=\"nav-link {$paginaActual}\" href=\"{$nombreArchivo}.php\"> <i class=\"{$icono}\"></i> {$textoPagina}</a>";
-
-
-
 
 
 }

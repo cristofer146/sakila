@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+        <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top"
              alt="">
         Sakila
     </a>
@@ -34,7 +34,7 @@
 
                         <div class="mb-3">
                             <label for="idioma">Seleccione su idioma</label>
-                            <input type="text" name="idioma" id="idioma" class="form-control">
+                            <input type="text" name="idioma" id="idioma" class="form-control" placeholder="Escriba su idioma">
 
                         </div>
 
@@ -64,6 +64,7 @@
 
                         <th scope="col">ID</th>
                         <th scope="col">Idiomas</th>
+                        <th scope="col">Ultima actualización</th>
 
 
                         </thead>
@@ -73,11 +74,12 @@
 
                         <?php
 
-                        foreach ($idiomas as $idioma) {
+                        foreach ($idioma as $idiomas) {
                             echo " <tr>
 
-                                <th scope=\"row\">{$idioma['language_id']}</th>
-                                <td>{$idioma['name']}</td>
+                                <th scope=\"row\">{$idiomas['language_id']}</th>
+                                <td>{$idiomas['name']}</td>
+                                <td>{$idiomas['last_update']}</td>
                                 
 
                             </tr>";
@@ -85,9 +87,7 @@
                         }
 
 
-
                         ?>
-
 
 
                         </tbody>

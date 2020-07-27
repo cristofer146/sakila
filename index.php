@@ -6,14 +6,10 @@ require_once "funciones/ayudante.php";
 require_once "modelo/modelo_actor.php";
 
 
-
 $actores = obtenerActores($conexion);
 
 
-
 $nombrepagina = "principal";
-
-
 
 
 //incluir las vistas

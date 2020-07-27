@@ -11,10 +11,7 @@ require_once "funciones/ayudante.php";
 require_once "modelo/modelo_tienda.php";
 
 
-
 $informacionTiendas = obtenerInformacionTiendas($conexion);
-
-
 
 
 //incluir la vista

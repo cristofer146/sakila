@@ -2,16 +2,19 @@
 require_once "config/conexion.php";
 
 
-function obtenerCiudades($conexion){
+function obtenerCiudades(PDO $conexion)
+{
 
 
-
-
-    $sql = " SELECT ci.city_id, ci.city, co.country
-            FROM city AS ci
-            INNER JOIN country AS co ON ci.country_id = co.country_id ";
+    $sql = " SELECT city_id, city, country FROM city INNER JOIN country c on city.country_id = c.country_id ";
 
 
     return $conexion->query($sql)->fetchAll();
 
+}
+
+function insertarCiudades($conexion, $datos){
+    $sql = "insert into city (city, country_id) values (:nombreCiudad, :idPais);";
+
+    return $conexion->prepare($sql)->execute($datos);
 }

@@ -10,7 +10,6 @@ require_once "modelo/modelo_ciudad.php";
 $paises = obtenerPaises($conexion);
 
 
-
 // Ciudades
 $ciudades = obtenerCiudades($conexion);
 
@@ -19,7 +18,7 @@ $ciudades = obtenerCiudades($conexion);
 //print_r($paises);
 //echo "</pre>";
 
-foreach ($paises as $pais){
+foreach ($paises as $pais) {
     echo "El pais #{$pais['country_id']} es {$pais['country']}";
     echo "<br>";
 }

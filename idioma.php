@@ -1,21 +1,17 @@
 <?php
 
-$nombrepagina = "idioma";
-
-
 require_once "funciones/ayudante.php";
-
 require_once "modelo/modelo_idioma.php";
+require_once "modelo/modelo_direccion.php";
 
 $nombrePagina = "Idioma";
-
 // Aseguremonos de que el usuario haya hecho click en el boton
-if (isset($_GET['idioma'])){
+if (isset($_POST['idioma'])) {
 
     echo "Se van ha guardar los datos....";
 }
 
-$idiomas = obtenerIdiomas($conexion);
+$idioma = obtenerIdiomas($conexion);
 
 //imprimirArray($idiomas);
 

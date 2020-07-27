@@ -1,0 +1,67 @@
+require_once "modelo/modelo_pais.php";
+require_once "modelo/modelo_ciudad.php";
+
+$nombrepagina = "Actor";
+
+
+
+// Declarar las variables
+$nombreCiudad = $_POST['nombreCiudad'] ?? "";
+$pais = $_POST['pais'] ?? "";
+try {
+
+    imprimirArray($_POST);
+
+   // imprimirArray($ciudades);
+//Asegurarnos de que el usuario haya hecho click en el boton Guardar Actor
+
+    if (isset($_POST['guardarCiudad'])) {
+
+
+        //validar datos
+        if (empty($nombreCiudad)) {
+            throw new Exception("El nombre de la ciudad no puede estar vacio.");
+        }
+
+        if (empty($pais)) {
+            throw new Exception("Debe seleccionar un pais..");
+        }
+
+        // Preparar el arrau con los datos
+        $datos = compact('nombreCiudad', 'pais');
+
+
+        //Insertar los dastos
+        $ciudadesInsertado = insertarCiudades($conexion, $datos);
+
+
+        //Lanzar un error si no se inserto correctamente
+        if (!$ciudadesInsertado) {
+            throw new Exception("Ocurri al insertar los datos del actor");
+        }
+
+        //Redirecciona la pagina
+        header("Location: actor.php", true, 303);
+
+
+    }
+
+} catch (Exception  $e) {
+    $error = $e->getMessage();
+
+
+
+}
+
+
+$paises = obtenerPaises($conexion);
+$ciudades = obtenerCiudades($conexion);
+
+
+
+// Incluir la vista
+include_once "vista/vista_ciudad.php";
+
+
+
+

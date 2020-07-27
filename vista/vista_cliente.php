@@ -5,7 +5,8 @@
 <!-- barra superior -->
 <nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="../static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
+             loading="lazy">
         sakila
     </a>
 </nav>
@@ -26,7 +27,7 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <form action="" method="get">
+                    <form action="" method="post">
 
                         <div class="mb-3">
                             <label for="Ciudad">Tienda:</label>
@@ -35,7 +36,7 @@
 
                                 <?php
 
-                                foreach ($informacionTiendas as $InformacionTiendas){
+                                foreach ($informacionTiendas as $InformacionTiendas) {
 
                                     echo "<option value=\"{$InformacionTiendas["store"]}\">{$InformacionTiendas["store_id"]}</option>";
 
@@ -50,24 +51,24 @@
 
                         <div class="mb-3">
                             <label for="direccion">Nombre:</label>
-                            <input type="text" name="direccion2" id="direccion2" class="form-control">
+                            <input type="text" name="direccion2" id="direccion2" class="form-control" placeholder="Dijite su nombre ">
                         </div>
 
                         <div class="mb-3">
                             <label for="distrito">Apellido:</label>
-                            <input type="text" name="distrito" id="distrito" class="form-control">
+                            <input type="text" name="distrito" id="distrito" class="form-control" placeholder="Dijite su apellido">
                         </div>
 
                         <div class="mb-3">
                             <label for="direccion">Email:</label>
-                            <input type="text" name="direccion" id="direccion" class="form-control">
+                            <input type="text" name="direccion" id="direccion" class="form-control" placeholder="Correo electronico">
 
 
                         </div>
 
                         <div class="mb-3">
                             <label for="codigoPostal">Dirección</label>
-                            <input type="text" name="codigoPostal" id="codigoPostal" class="form-control">
+                            <input type="text" name="codigoPostal" id="codigoPostal" class="form-control" placeholder="Dijite su dirección">
                         </div>
 
 
@@ -86,12 +87,6 @@
 
 
                                 ?>
-
-
-
-
-
-
 
 
                             </select>

@@ -1,4 +1,3 @@
-
 <?php
 $nombrepagina = "Error 404";
 

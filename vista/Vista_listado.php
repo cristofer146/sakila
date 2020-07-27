@@ -11,17 +11,16 @@
 <select name="" id="">
 
     <option value="1">Rep. Dom</option>
-    <option value="2">Haiti </option>>
+    <option value="2">Haiti</option>
+    >
 
 
     <?php
-    foreach ($paises as $pais){
+    foreach ($paises as $pais) {
         echo "<option value= \"{$pais['country_id']}\">{$pais['country']}</option>";
 
     }
     ?>
-
-
 
 
 </select>
@@ -32,7 +31,6 @@
     <label for="">Ciudades</label>
     <select name="" id="">
         <option value=""></option>
-
 
 
         <?php

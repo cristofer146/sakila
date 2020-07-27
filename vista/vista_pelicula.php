@@ -5,7 +5,8 @@
 <!-- barra superior -->
 <nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="../static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="../static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
+             loading="lazy">
         sakila
     </a>
 </nav>
@@ -26,7 +27,7 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <form action="" method="get">
+                    <form action="" method="post">
 
                         <div class="mb-3">
                             <label for="direccion">Titulo:</label>
@@ -44,18 +45,52 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="Ciudad">Idioma original:</label>
-                            <select name="ciudad" id="ciudad" class="form-select">
+                            <label for="idioma">Idioma original:</label>
+                            <select name="idioma" id="idioma" class="form-select">
                                 <option value="">Seleccione un idioma:</option>
+
+
+
+
+
+
+
+                                <?php
+
+                                foreach ($idiomas as $idioma) {
+
+                                    echo "<option value=\"{$idioma["language_id"]}\">{$idioma["name"]}</option>";
+                                }
+
+
+                                ?>
+
+
 
                             </select>
 
                         </div>
 
                         <div class="mb-3">
-                            <label for="Ciudad">Idiomas</label>
-                            <select name="ciudad" id="ciudad" class="form-select">
+                            <label for="idioma">Idiomas</label>
+                            <select name="idioma" id="idioma" class="form-select">
                                 <option value="">Seleccione un idioma:</option>
+
+
+                                <?php
+
+                                foreach ($idiomas as $idioma) {
+
+                                    echo "<option value=\"{$idioma["language_id"]}\">{$idioma["name"]}</option>";
+                                }
+
+
+                                ?>
+
+
+
+
+
 
                             </select>
 
@@ -96,6 +131,52 @@
                         </div>
 
                     </form>
+                    <table class="table table-hover">
+                        <thead>
+
+                        <th scope="col">ID de pelicula</th>
+                        <th scope="col">Nombre del titulo</th>
+                        <th scope="col">Nombre de la descripcion</th>
+                        <th scope="col">Nombre del año de lazamiento</th>
+                        <th scope="col">ID de idioma</th>
+                        <th scope="col">Idioma original</th>
+                        <th scope="col">Duracion del alquiler</th>
+                        <th scope="col">Tasa de renta</th>
+                        <th scope="col">Longitud de la pelicula</th>
+                        <th scope="col">Remplazo de costo</th>
+                        <th scope="col">Clasificación de la pelicula </th>
+                        <th scope="col">Carateristicas especiales</th>
+                        <th scope="col">última actualización</th>
+                        </thead>
+                        <tbody>
+
+
+                        <?php
+
+                        foreach ($peliculas as $pelicula) {
+
+                            echo "<tr>
+                             <th scope=\"row\">{$pelicula['film_id']}</th>
+                             <td>{$pelicula['title']}</td>
+                             <td>{$pelicula['description']}</td>
+                             <td>{$pelicula['release_year']}</td>
+                             <td>{$pelicula['language_id']}</td>
+                             <td>{$pelicula['original_language_id']}</td>
+                             <td>{$pelicula['rental_duration']}</td>
+                             <td>{$pelicula['rental_rate']}</td>
+                             <td>{$pelicula['length']}</td>
+                             <td>{$pelicula['replacement_cost']}</td>
+                             <td>{$pelicula['rating']}</td>
+                             <td>{$pelicula['special_features']}</td>
+                             <td>{$pelicula['last_update']}</td>
+                              </tr>";
+
+                        }
+                        ?>
+
+                        </tbody>
+                    </table>
+
 
                 </div>
 

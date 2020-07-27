@@ -5,7 +5,7 @@ require_once "modelo/modelo_actor.php";
 
 $nombrepagina = "Actor";
 
-imprimirArray($_POST);
+
 // Declarar las variables
 $nombreActor = $_POST['nombreActor'] ?? "";
 $apellidoActor = $_POST['apellidoActor'] ?? "";
