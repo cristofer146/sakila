@@ -97,6 +97,57 @@
                         </div>
 
                     </form>
+                    <table class="table table-hover">
+                        <thead>
+
+                        <th scope="col">ID de tienda</th>
+
+                        <th scope="col">Nombre de pila </th>
+
+                        <th scope="col">Apellido</th>
+
+                        <th scope="col">Correo electronico</th>
+
+                        <th scope="col">ID de direccion</th>
+
+                        <th scope="col">Activo</th>
+
+                        <th scope="col">Fecha de creacion</th>
+
+                        <th scope="col">Ultima actualización</th>
+
+
+
+
+                        </thead>
+                        <tbody>
+
+
+                        <?php
+
+                        foreach ($clientes as $cliente) {
+
+                            echo "<tr>
+                                  <th scope=\"row\">{$cliente['customer_id']}</th>
+                              
+                                    <td>{$cliente['store_id']}</td>
+                                    <td>{$cliente['first_name']}</td>
+                                    <td>{$cliente['last_name']}</td>
+                                    <td>{$cliente['email']}</td>
+                                    <td>{$cliente['address_id']}</td>
+                                    <td>{$cliente['active']}</td>
+                                    <td>{$cliente['create_date']}</td>
+                                    
+                                     
+                                     
+                                    
+                                  </tr>";
+
+                        }
+                        ?>
+
+                        </tbody>
+                    </table>
 
                 </div>
 
