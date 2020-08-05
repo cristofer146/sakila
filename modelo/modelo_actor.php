@@ -20,6 +20,37 @@ function insertarActores($conexion, $datos)
 
 }
 
+function eliminarActores($conexion, $datos)
+{
+
+    $sql = "  DELETE from film_actor where actor_id = :idActor;
+
+delete from actor where  actor_id = :idActor;";
+
+    return $conexion->prepare($sql)->execute($datos);
+}
+
+
+function otenerActorPorId($conexion, $datos)
+{
+    $sql = "select  * from actor where actor_id = :idActor;";
+
+    $query = $conexion->prepare($sql);
+    $query->execute($datos);
+
+    return $query->fetch();
+}
+
+function editarActores($conexion, $datos)
+{
+    $sql = "update actor set first_name = :nombreActor, last_name = :apellidoActor where actor_id = :idActor;";
+
+    return $conexion->prepare($sql)->execute($datos);
+
+}
+
+
+
 
 
 

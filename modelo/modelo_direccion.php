@@ -5,7 +5,7 @@ require_once "config/conexion.php";
 function obtenerDirecciones($conexion)
 {
 
-    $sql = "SELECT * FROM address";
+    $sql = "SELECT address_id, address, address2, district, city_id, postal_code, phone from address;";
 
     return $conexion->query($sql)->fetchAll();
 }
@@ -19,3 +19,4 @@ function insertarDireciones($conexion, $datos)
     return $conexion->prepare($sql)->execute($datos);
 
 }
+

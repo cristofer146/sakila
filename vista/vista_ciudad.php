@@ -25,26 +25,34 @@
                     <form action="" method="post">
                         <div class="mb-3">
                             <label for="nombreCiudad">Nombre de la ciudad </label>
-                            <input type="text" name="nombreCiudad" id="nombreCiudad" class="form-control" placeholder="Escribe el nombre de tu ciudad">
+                            <input type="text" name="nombreCiudad" id="nombreCiudad" class="form-control"
+                                   placeholder="Escribe el nombre de tu ciudad">
                         </div>
 
                         <div class="mb-3">
-                            <label for="idPais">Ciudad</label>
-                            <select name="idPais" id="idPais" class="form-select">
-                                <option value="">Seleccione un pais</option>
+
+                            <label for="idPais" class="form-label">Pais</label>
 
 
-                                <?php
+                            <?php if ( empty($paises) ) { ?>
+                                <div class="form-label"><i class="fas fa-info-circle"></i> No hay paises registrados
+                                </div>
+                            <?php } else { ?>
+                                <select name="idPais" id="idPais" class="form-select">
+                                    <option value="">Seleccione un pais</option>
 
-                                foreach ($paises as $pais) {
 
-                                    echo "<option value=\"{$pais["country_id"]}\">{$pais["country"]}</option>";
-                                }
+                                    <?php
+
+                                    foreach ( $paises as $pais ) {
+
+                                        echo "<option value=\"{$pais["country_id"]}\">{$pais["country"]}</option>";
+                                    }
 
 
-                                ?>
-                            </select>
-
+                                    ?>
+                                </select>
+                            <?php } ?>
                         </div>
 
                         <div class="mb-3">
@@ -52,8 +60,6 @@
                         </div>
 
                     </form>
-
-
 
 
                     <?php
@@ -80,51 +86,59 @@
                     }
 
 
-
                     ?>
 
 
 
+                    <?php
+
+                    if ( empty($ciudades) ) {
+
+                        include_once "componentes/parte_empty.php";
 
 
-                    <div class="row">
-                        <div class="col-md-13">
+                    } else { ?>
 
-                            <table class="table table-hover">
-                                <thead>
+                        <div class="row">
+                            <div class="col-md-13">
 
-                                <th scope="col">ID de la ciudad</th>
-                                <th scope="col">Nombre de la ciuda</th>
-                                <th scope="col">Nombre del pais</th>
-                                </thead>
-                                <tbody>
+                                <table class="table table-hover">
+                                    <thead>
+
+                                    <th scope="col">ID de la ciudad</th>
+                                    <th scope="col">Nombre de la ciuda</th>
+                                    <th scope="col">Nombre del pais</th>
+                                    </thead>
+                                    <tbody>
 
 
-                                <?php
+                                    <?php
 
-                                foreach ($ciudades as $ciudad) {
+                                    foreach ( $ciudades as $ciudad) {
 
-                                    echo "<tr>
+                                        echo "<tr>
                               <th scope=\"row\">{$ciudad['city_id']}</th>
                               <td>{$ciudad['city']}</td>
                               <td>{$ciudad['country']}</td>
                               </tr>";
 
-                                }
-                                ?>
+                                    }
+                                    ?>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
 
                         </div>
 
-
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
     </div>
-</div>
+ </div>
 
 <?php include_once "componentes/parte_foot.php"; ?>
 

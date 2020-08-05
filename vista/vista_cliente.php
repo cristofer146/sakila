@@ -26,7 +26,7 @@
             <hr>
 
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <form action="" method="post">
 
                         <div class="mb-3">
@@ -100,23 +100,19 @@
                     <table class="table table-hover">
                         <thead>
 
-                        <th scope="col">ID de tienda</th>
+                        <th scope="col">ID</th>
 
-                        <th scope="col">Nombre de pila </th>
+                        <th scope="col">Tienda</th>
 
-                        <th scope="col">Apellido</th>
+                        <th scope="col">Nombre</th>
 
-                        <th scope="col">Correo electronico</th>
+                        <th scope="col">Correo</th>
 
-                        <th scope="col">ID de direccion</th>
+                        <th scope="col">Dirección</th>
 
                         <th scope="col">Activo</th>
 
-                        <th scope="col">Fecha de creacion</th>
-
-                        <th scope="col">Ultima actualización</th>
-
-
+                        <th scope="col">Fecha de creación</th>
 
 
                         </thead>
@@ -127,16 +123,28 @@
 
                         foreach ($clientes as $cliente) {
 
+                            if ( $cliente['active'] == 1 ) {
+                                $icono = ' <i class=\'fas fa-check text-success\'></i>';
+
+                            } else {
+                                $icono = ' <i class=\'fas fa-times text-danger\'></i>';
+                            }
+
                             echo "<tr>
                                   <th scope=\"row\">{$cliente['customer_id']}</th>
                               
                                     <td>{$cliente['store_id']}</td>
-                                    <td>{$cliente['first_name']}</td>
-                                    <td>{$cliente['last_name']}</td>
+                                    <td>" . ucwords(strtolower($cliente['name'])) . "</td>
                                     <td>{$cliente['email']}</td>
-                                    <td>{$cliente['address_id']}</td>
-                                    <td>{$cliente['active']}</td>
-                                    <td>{$cliente['create_date']}</td>
+                                    <td>{$cliente['address']}</td>
+                                    <td>
+                                    {$cliente['activo']}
+                                    
+                                   {$icono}
+                                   
+                                    
+                                    </td>
+                                    <td>{$cliente['fecha']}</td>
                                     
                                      
                                      

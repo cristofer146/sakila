@@ -16,7 +16,7 @@ function insertarpeliculas($conexion, $datos)
     film
     (title, description, release_year, language_id, original_language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features, last_update) 
   VALUES
-    (:titulo,  :descripcion, :lazamiento, :idioma, :idiomaoriginal, :duracion, :tasaArredamiento, :tamano, :costoreemplazo, :calificacion, :caracteristicas, :atualizacion);";
+    (:titulo,  :descripcion, :anolazamiento, :idioma, :idiomaoriginal, :duracion, :tasaArredamiento, :tamano, :costoreemplazo, :calificacion, :caracteristicas, :atualizacion);";
 
     return $conexion->prepare($sql)->execute($datos);
 }

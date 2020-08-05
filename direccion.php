@@ -26,7 +26,6 @@ $codigoPostal = $_POST['codigoPostal'] ?? "";
 
 $telefono = $_POST['telefono'] ?? "";
 
-$ubicion = $_POST['ubicacion'] ?? "";
 
 
 // Cuando el usuario haga click en el boton guardardireccion
@@ -56,10 +55,6 @@ try {
         }
 
         if ( empty($telefono) ) {
-            throw new Exception(" Telefono no puede estar vacio.");
-        }
-
-        if ( empty($ubicacion) ) {
             throw new Exception(" Telefono no puede estar vacio.");
         }
 

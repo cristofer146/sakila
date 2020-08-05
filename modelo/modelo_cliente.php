@@ -12,19 +12,24 @@ function obtenerCliente($conexion)
        c.first_name,
        c.last_name,
        concat(c.first_name, ' ', c.last_name) As name,
-       c.email,
+       LOWER(c.email)AS email,
        c.address_id,
        c.create_date,
        DATE_FORMAT(C.create_date, '%d-%M-%Y %l %i %p')As fecha,
-       a.address,
-       
-        case c.active when 1 then 'si' else 'no' end as active
+       a.address, 
+       if( c.active = 1, 'si', 'no')  AS  activo,
+       c.active
+
+      
+
+
+
         from customer AS c
         left join store AS s on c.store_id = s.store_id
-        left join address AS a on c.address_id = a.address_id;";
+        left join address AS a on c.address_id = a.address_id
+        ORDER BY c.first_name
 
-
-
+;";
     return $conexion->query($sql)->fetchAll();
 }
 

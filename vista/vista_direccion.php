@@ -75,10 +75,7 @@
                             <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="Telefono de tu pais">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="ubicacion">Ubicación</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control" placeholder="Cual es tu ubicación atual">
-                        </div>
+
 
                         <div class="mb-3">
                             <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
@@ -107,9 +104,6 @@
 
                                 <th scope="col">phone</th>
 
-                                <th scope="col">ubicación</th>
-
-                                <th scope="col">última actualización</th>
 
 
                                 </thead>
@@ -129,8 +123,7 @@
                                     <td>{$Direccion['city_id']}</td>
                                     <td>{$Direccion['postal_code']}</td>
                                     <td>{$Direccion['phone']}</td>
-                                    <td>{$Direccion['location']}</td>
-                                     <td>{$Direccion['last_update']}</td>
+                                    
                                      
                                     
                                   </tr>";

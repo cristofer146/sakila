@@ -5,7 +5,7 @@
 <!-- barra superior -->
 <nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
-        <img src="../static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
+        <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
              loading="lazy">
         sakila
     </a>
@@ -30,29 +30,41 @@
                     <form action="" method="post">
 
                         <div class="mb-3">
-                            <label for="direccion">Titulo:</label>
-                            <input type="text" name="direccion" id="direccion" class="form-control">
+                            <label for="titulo">Titulo:</label>
+                            <input type="text" name="titulo" id="titulo" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="direccion">Descripción</label>
-                            <input type="text" name="direccion2" id="direccion2" class="form-control">
+                            <label for="descripcion">Descripción</label>
+                            <input type="text" name="descripcion" id="descripcion" class="form-control">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="distrito">Año de lanzamiento</label>
-                            <input type="text" name="distrito" id="distrito" class="form-control">
-                        </div>
 
                         <div class="mb-3">
-                            <label for="idioma">Idioma original:</label>
-                            <select name="idioma" id="idioma" class="form-select">
+                            <label for="anolanzamiento" class="form-label">Año de lanzmiento</label>
+                            <input class="form-control" list="listadoAnios" name="anoLanzamiento" id="anolanzamiento"
+                                   placeholder="Elige el año de lazamiento">
+                            <datalist id="listadoAnios">
+
+                                <?php
+
+                                for ( $year = date("Y"); $year >= 1980; $year-- ) {
+                                    echo "<option value=\"{$year}\">";
+                                }
+
+
+                                ?>
+
+
+                            </datalist>
+
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="idiomaoriginal">Idioma original:</label>
+                            <select name="idiomaoriginal" id="idiomaoriginal" class="form-select">
                                 <option value="">Seleccione un idioma:</option>
-
-
-
-
-
 
 
                                 <?php
@@ -88,46 +100,76 @@
                                 ?>
 
 
-
-
-
-
                             </select>
 
                         </div>
 
                         <div class="mb-3">
-                            <label for="telefono">Duración de renta:</label>
-                            <input type="tel" name="telefono" id="telefono" class="form-control">
+                            <label for="duracion">Duración de renta:</label>
+                            <input type="tel" name="duracion" id="duracion" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="ubicacion">Tasa de arrendamiento:</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+                            <label for="tasaArredamiento">Tasa de arrendamiento:</label>
+                            <input type="text" name="tasaArredamiento" id="tasaArredamiento" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="ubicacion">Tamaño:</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+                            <label for="tamano">Tamaño:</label>
+                            <input type="text" name="tamano" id="tamano" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="ubicacion">Costo de reemplazo:</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+                            <label for="costoreemplazo">Costo de reemplazo:</label>
+                            <input type="text" name="" id="costoreemplazo" class="form-control">
                         </div>
 
                         <div class="mb-3">
-                            <label for="ubicacion">Clasificacion:</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+                            <label for="clasificacion">Clasificacion:</label>
+                            <select name="clasificacion" id="clasificacion" class="form-select">
+                                <option value="">Elige un rating</option>
+                                <?php
+
+
+                                $clasificaciones = ['G', 'PG', 'PG-13', 'R', 'NC-17'];
+
+
+                                foreach ( $clasificaciones as $clasificacion ) {
+                                    echo "<option value=\"{$clasificacion}\">{$clasificacion}</option>";
+
+                                }
+
+                                ?>
+                            </select>
+
+
                         </div>
 
                         <div class="mb-3">
-                            <label for="ubicacion">Caracteristicas especiales:</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control">
+                            <label for="caracteristicas" class="form-label">Caracteristicas especiales</label>
+
+
+                            <select name="caracteristicas[]" id="caracteristicas" class="form-select" multiple>
+                                <option value="">Elige una o mas caracteristicas especiales</option>
+                                <?php
+
+
+                                $caracteristicas = ['Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes'];
+
+
+                                foreach ( $caracteristicas as $caracteristica ) {
+                                    echo "<option value=\"{$caracteristica}\">{$caracteristica}</option>";
+
+                                }
+
+                                ?>
+                            </select>
+
+
                         </div>
 
                         <div class="mb-3">
-                            <button type="submit" name="guardarDireccion" class="btn btn-primary">Guardar datos</button>
+                            <button type="submit" name="guardar_datos" class="btn btn-primary">Guardar datos</button>
                         </div>
 
                     </form>

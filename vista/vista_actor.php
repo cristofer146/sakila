@@ -31,6 +31,9 @@
 
 
                     <form action="" method="post">
+
+                        <input type="hidden" name="idActor" value="<?= $idActor ?>">
+
                         <div class="mb-4">
                             <label for="nombreActor">Primer nombre del actor</label>
                             <input type="text" name="nombreActor" id="nombreActor" class="form-control"
@@ -51,7 +54,7 @@
 
                     </form>
 
-                    <?php  include_once "componentes/parte_navebar.php";?>
+                    <?php include_once "componentes/parte_navebar.php"; ?>
 
 
                 </div>
@@ -60,40 +63,57 @@
 
             <hr>
 
-            <div class="row">
-                <div class="col-md-12">
 
-                    <table class="table">
-                        <thead>
+            <?php
 
-                        <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        </thead>
-                        <tbody>
+            if ( empty($actores) ) {
+
+                include_once "componentes/parte_empty.php";
 
 
-                        <?php
+            } else { ?>
 
-                        foreach ($actores as $actor) {
 
-                            echo "<tr>
-                              <th scope=\"row\">{$actor['actor_id']}</th>
-                              <td>{$actor['first_name']}</td>
-                              <td>{$actor['last_name']}</td>
-                        </tr>";
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="" method="post">
+                            <table class="table"
+                            <thead>
 
-                        }
-                        ?>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Acciones</th>
+                            </thead>
 
-                        </tbody>
-                    </table>
+                            <tbody>
+
+
+                            <?php
+
+                            foreach ( $actores as $actor ) {
+
+                                echo "<tr>
+                                                  <th scope=\"row\">{$actor['actor_id']}</th>
+                                                  <td>{$actor['first_name']}</td>
+                                                  <td>{$actor['last_name']}</td>
+                                                  <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$actor['actor_id']}'> <i class='fas fa-trash'></i></button>
+                                                  <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$actor['actor_id']}'><i class='fas fa-pen'></i></button>
+                                                  </td>
+                                            </tr>";
+
+                            }
+                            ?>
+
+                            </tbody>
+                            </table>
+                        </form>
+
+                    </div>
 
                 </div>
 
-
-            </div>
-
+            <?php } ?>
 
         </div>
 
@@ -103,5 +123,5 @@
 
 </div>
 
-<?php  include_once "componentes/parte_foot.php";?>
+<?php include_once "componentes/parte_foot.php"; ?>
 

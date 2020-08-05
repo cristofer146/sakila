@@ -7,13 +7,17 @@ $nombrepagina = "Actor";
 
 
 // Declarar las variables
+$idActor = $_POST['idActor'] ?? "";
 $nombreActor = $_POST['nombreActor'] ?? "";
 $apellidoActor = $_POST['apellidoActor'] ?? "";
+
+
+//imprimirArray($_POST);
+
+
 try {
 
-
-//Asegurarnos de que el usuario haya hecho click en el boton Guardar Actor
-
+// Asegurarnos de que el usuario haya hecho click en el boton Guardar
     if ( isset($_POST['guardar_actor']) ) {
 
 
@@ -29,27 +33,84 @@ try {
         // Preparar el arrau con los datos
         $datos = compact('nombreActor', 'apellidoActor');
 
+        if ( empty($idActor) ) {
+            //Insertar los dastos
+            $actorInsertado = insertarActores($conexion, $datos);
+
+            $mensaje = "Los datos fueron creados correctamente";
+
+
+            //Lanzar un error si no se inserto correctamente
+            if ( ! $actorInsertado ) {
+                throw new Exception("Ocurri al insertar los datos del actor");
+            }
+
+        } else {
+
+        }
+
+
+        //Redirecciona la pagina
+        // redireccionar("actor.php");
+    }
+
+
+    // Asegurarnos que el usuario haya hecho click en el boton eliminar
+
+    if ( isset($_POST['eliminarActor']) ) {
+        $idActor = $_POST['eliminarActor'] ?? "";
+
+        //validar
+        if ( empty($idActor) ) {
+            throw new Exception("El id del actor no puede estar vacio.");
+        }
+
+        echo "11111";
+
+        // Preparar el arrau con los datos
+        $datos = compact('idActor');
+
 
         //Insertar los dastos
-        $actorInsertado = insertarActores($conexion, $datos);
+        $eliminado = eliminarActores($conexion, $datos);
 
-        $mensaje = "Ocurrio un error al insertar los datos del actor";
+        $mensaje = "Los datos fueron eliminados correctamente";
 
 
         //Lanzar un error si no se inserto correctamente
-        if ( ! $actorInsertado ) {
-            throw new Exception("Ocurri al insertar los datos del actor");
+        if ( ! $eliminado ) {
+            throw new Exception("Los datos no se eliminaron correctamente.");
         }
 
-        //Redirecciona la pagina
-        redireccionar("actor.php");
+
+        //Re-direccionar
+        // redireccionar("actor.php");
 
     }
 
-} catch ( Exception  $e ) {
+
+    if ( isset($_POST['editarActor']) ) {
+        $idActor = $_POST['editarActor'] ?? '';
+
+
+        if ( empty($idActor) ) {
+
+            throw new Exception("El valor del id del Actor esta vacio.");
+        }
+
+        $datos = compact('idActor');
+        $resultado = otenerActorPorId($conexion, $datos);
+
+
+        $nombreActor = $resultado ['first_name'];
+        $apellidoActor = $resultado ['last_name'];
+
+
+    }
+
+
+} catch ( Exception $e ) {
     $error = $e->getMessage();
-
-
 }
 
 
