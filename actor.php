@@ -42,7 +42,7 @@ try {
 
             //Lanzar un error si no se inserto correctamente
             if ( ! $actorInsertado ) {
-                throw new Exception("Ocurri al insertar los datos del actor");
+                throw new Exception("Ocurrio al insertar los datos del actor");
             }
 
         } else {
