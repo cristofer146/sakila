@@ -10,3 +10,11 @@ function obtenerCategorias($conexion)
     return $conexion->query($sql)->fetchAll();
 
 }
+
+function insertarCategoria ($conexion, $datos)
+{
+
+    $sql = "INSERT INTO category (name) VALUES (:nombreCategoria)";
+
+    return $conexion->prepare($sql)->execute($datos);
+}

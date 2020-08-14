@@ -11,3 +11,11 @@ function obtenerIdiomas($conexion)
     return $conexion->query($sql)->fetchAll();
 
 }
+function insertarIdiomas($conexion, $datos)
+{
+    $sql = "INSERT INTO language ( name ) VALUES(:nombreIdiomas);";
+
+    return $conexion->prepare($sql)->execute($datos);
+
+
+}

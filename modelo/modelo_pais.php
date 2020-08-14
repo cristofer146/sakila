@@ -11,12 +11,15 @@ function obtenerPaises($conexion)
 
     return $conexion->query($sql)->fetchAll();
 }
-
-function insertarDireciones($conexion, $datos)
+function insertarpaises($conexion, $datos)
 {
- $sql = "INSERT INTO country (country_id, country, last_update) VALUE (:countryId,:country,:lastUpdate);";
+    $sql = "INSERT INTO country ( country) VALUE (:nombrepais);";
 
     return $conexion->prepare($sql)->execute($datos);
 }
+
+
+
+
 
 

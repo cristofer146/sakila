@@ -10,11 +10,12 @@ require_once "modelo/modelo_ciudad.php";
     //Declarar las variables
     $nombrepagina = "Ciudad";
 
+
     $nombreCiudad = $_POST['nombreCiudad'] ?? "";
 
     $idPais = $_POST['idPais'] ?? "";
 
-
+     imprimirArray($_POST);
 
 try {
     if (isset($_POST['guardar_datos'])) {

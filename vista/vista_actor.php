@@ -36,15 +36,34 @@
 
                         <div class="mb-4">
                             <label for="nombreActor">Primer nombre del actor</label>
-                            <input type="text" name="nombreActor" id="nombreActor" class="form-control"
-                                   placeholder="Digite el nombre" value="<?= $nombreActor ?>">
+                            <input type="text" name="nombreActor" id="nombreActor" class="form-control   <?php echo isset($validaciones['errorNombre']) ? 'is-invalid' : ''; ?>"
+                                   placeholder="Digite el nombre" value="<?= $nombreActor ?>"><div class="invalid-feedback">
+                                    <?php
+                                    if (isset($validaciones['errorNombre'])) {
+                                        echo $validaciones['errorNombre'];
+
+                                    }
+                                    ?>
+
+                                </div>
                         </div>
 
 
                         <div class="mb-4">
                             <label for="apellidoActor">Apellido del actor</label>
-                            <input type="text" id="apellidoActor" name="apellidoActor" class="form-control"
-                                   placeholder="Digite el apellido" value="<?= $apellidoActor?>">
+                            <input type="text" id="apellidoActor" name="apellidoActor" class="form-control <?php if (isset($validaciones['errorApellido'])) {
+                                echo 'is-invalid';
+                                  } ?>"
+
+                                   placeholder="Digite el apellido" value="<?= $apellidoActor?>"><div class="invalid-feedback">
+                                <?php
+                                if (isset($validaciones['errorApellido'])) {
+                                    echo $validaciones['errorApellido'];
+
+                                }
+                                ?>
+
+                            </div>
 
                         </div>
 
@@ -63,7 +82,6 @@
 
             <hr>
 
-
             <?php
 
             if ( empty($actores) ) {
@@ -72,6 +90,7 @@
 
 
             } else { ?>
+
 
 
                 <div class="row">

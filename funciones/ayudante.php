@@ -1,5 +1,10 @@
 <?php
 
+//echo session_status();
+
+if (session_status() == 1 ) {
+    session_start();
+}
 
 
 function reportarErrores($numero, $mensage, $archivo, $linea)
@@ -57,3 +62,19 @@ function redireccionar ($ruta) {
     header("Location: {$ruta}", true, 303);
 
 }
+
+// Manejo de los mensajes de success (éxito) usando la session
+
+if (session_status() == 2 ) {
+
+    $mensaje = $_SESSION['mensaje'] ?? "";
+
+
+
+    if ( isset($_SESSION['mensaje']) ) {
+        unset($_SESSION['mensaje']);
+    }
+
+}
+
+

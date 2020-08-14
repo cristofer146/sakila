@@ -30,22 +30,26 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <form action="idioma.php" nethod="get">
+                    <form action="" method="post">
+
 
                         <div class="mb-3">
-                            <label for="idioma">Seleccione su idioma</label>
-                            <input type="text" name="idioma" id="idioma" class="form-control" placeholder="Escriba su idioma">
+                            <label for="nombreIdiomas">Seleccione su idioma</label>
+                            <input type="text" name="nombreIdiomas" id="nombreIdiomas" class="form-control" placeholder="Escriba su idioma">
 
                         </div>
 
 
                         <div class="mb-3">
 
-                            <button type="submit" name="idioma" class="btn btn-primary">Guardar datos</button>
+                            <button type="submit" name="guardar_datos" class="btn btn-primary">Guardar datos</button>
 
                         </div>
 
                     </form>
+
+                    <?php include_once "componentes/parte_navebar.php"; ?>
+
 
 
                 </div>
@@ -64,7 +68,8 @@
 
                         <th scope="col">ID</th>
                         <th scope="col">Idiomas</th>
-                        <th scope="col">Ultima actualización</th>
+                        <th scope="col">Ultima fecha de actualizacion</th>
+                        <th scope="col">Acciones</th>
 
 
                         </thead>
@@ -80,7 +85,9 @@
                                 <th scope=\"row\">{$idiomas['language_id']}</th>
                                 <td>{$idiomas['name']}</td>
                                 <td>{$idiomas['last_update']}</td>
-                                
+                                <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$idiomas['language_id']}'> <i class='fas fa-trash'></i></button>
+                                            <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$idiomas['language_id']}'><i class='fas fa-pen'></i></button>
+                                          
 
                             </tr>";
 
@@ -99,7 +106,9 @@
 
             </div>
 
-
+        </div>
+    </div>
+</div>
 </body>
 </html>
 

@@ -13,8 +13,8 @@
 
 
 <!-- contenido -->
-<div class="container-fluid">
-    <div class="row">
+ <div class="container-fluid">
+     <div class="row">
         <div class="col-md-2">
             <?php include_once "componentes/comp_menu.php" ?>
         </div>
@@ -32,25 +32,47 @@
                     <form action="" method="post">
 
                         <div class="mb-3">
-                            <label for="Ciudad">Gerente personal</label>
-                            <select name="ciudad" id="ciudad" class="form-select">
+                            <label for="nombregerente">Gerente personal</label>
+                            <select name="nombregetente" id="nombregerente" class="form-select">
                                 <option value="">Seleccione un gerente:</option>
 
+
+                                <?php
+
+                                foreach ($gerente as $gerentes) {
+
+                                    echo "<option value=\"{$gerentes["firt_name"]}\">{$gerentes["last_name"]}</option>";
+                                }
+
+
+                                ?>
+
                             </select>
                         </div>
 
                         <div class="mb-4">
-                            <label for="Ciudad">Direccion:</label>
-                            <select name="ciudad" id="ciudad" class="form-select">
+                            <label for="nombreDireccion">Direccion:</label>
+                            <select name="nombreDireccion" id="nombreDireccion" class="form-select">
                                 <option value="">Listado de direcciones:</option>
 
+                                <?php
+
+                                foreach ($direcciones as $Direcciones) {
+
+                                    echo "<option value=\"{$Direcciones["address_id"]}\">{$Direcciones["address"]}</option>";
+                                }
+
+
+                                ?>
+
+
                             </select>
                         </div>
 
 
                         <div class="mb-4">
 
-                            <button type="submit" name="guardar_actor" class="btn btn-primary">Guardar</button>
+                            <button type="submit" name="guardar_datos" class="btn btn-primary">Guardar</button>
                         </div>
 
                     </form>
@@ -59,55 +81,54 @@
                 </div>
             </div>
 
+
+            <?php include_once "componentes/parte_navebar.php"; ?>
+
             <hr>
-            <div class="row"
-            <div class="col-md-12">
+                          <div class="col-md-12">
 
-                <table class="table">
+                            <table class="table">
 
-                    <thead>
-                    <th>ID de la tienda</th>
-                    <th>Gerente de la tienda</th>
-                    <th>Direccion de la tienda</th>
+                                <thead>
+                                <th>ID de la tienda</th>
+                                <th>Gerente de la tienda</th>
+                                <th>Direccion de la tienda</th>
 
-                    </thead>
-
-
-                    <tbody>
-
-                    <?php
-
-                    foreach ($informacionTiendas as $infotienda) {
+                                </thead>
 
 
-                        echo "
-                               <tr>
+                                <tbody>
 
-                            <td>{$infotienda['store_id']} </td>
+                                <?php
 
-                            <td> {$infotienda['first_name']}</td>
-
-                            <td>{$infotienda['address']} </td>
-
-                            </tr>";
-
-                    }
-
-                    ?>
+                                foreach ($informacionTiendas as $infotienda) {
 
 
-                    </tbody>
-                </table>
+                                    echo "
+                                           <tr>
+            
+                                        <td>{$infotienda['store_id']} </td>
+            
+                                        <td> {$infotienda['first_name']}</td>
+            
+                                        <td>{$infotienda['address']} </td>
+            
+                                        </tr>";
 
-            </div>
-        </div>
+                                }
 
+                                ?>
+
+
+                                </tbody>
+                            </table>
+
+                          </div>
+                    </div>
+       </div>
     </div>
-
-
 </div>
 
-</div>
 
 
 </body>

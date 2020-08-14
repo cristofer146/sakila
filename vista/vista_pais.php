@@ -21,7 +21,7 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <form action="pais.php" nethod="get">
+                    <form action="" method="post">
 
                         <div class="mb-3">
                             <label for="idioma">Escriba su pais:</label>
@@ -38,46 +38,71 @@
 
                     </form>
 
-
-                    <div class="row">
-                        <div class="col-md-13">
-
-                            <table class="table table-hover">
-                                <thead>
-
-                                <th scope="col">ID de pais</th>
-
-                                <th scope="col">Nombre del pais</th>
-                                </thead>
-                                <tbody>
+                    <?php include_once "componentes/parte_navebar.php"; ?>
 
 
-                                <?php
-
-                                foreach ($paises as $pais) {
-
-                                    echo "<tr>
-                              <th scope=\"row\">{$pais['country_id']}</th>
-                              
-                                <td>{$pais['country']}</td>
-                              </tr>";
-
-                                }
-                                ?>
-
-                                </tbody>
-                            </table>
-
-                        </div>
 
 
-                    </div>
+                    <?php
+
+                    if ( empty($actores) ) {
+
+                        //include_once "componentes/parte_empty.php";
+
+
+                   // } else { ?>
+
+                                <div class="row">
+                                    <div class="col-md-13">
+                                        <form action="" method="post">
+                                        <table class="table table-hover">
+                                            <thead>
+
+                                            <th scope="col">ID de pais</th>
+
+                                            <th scope="col">Nombre del pais</th>
+
+                                            <th scope="col">Ultima Actualizacion</th>
+
+                                            <th scope="col">Acciones</th>
+                                            </thead>
+                                            <tbody>
+
+
+                                            <?php
+
+                                            foreach ($paises as $pais) {
+
+                                                echo "<tr>
+                                          <th scope=\"row\">{$pais['country_id']}</th>
+                                          
+                                            <td>{$pais['country']}</td>
+                                            <td>{$pais['last_update']}</td>
+                                            <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$pais['country_id']}'> <i class='fas fa-trash'></i></button>
+                                            <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$pais['country_id']}'><i class='fas fa-pen'></i></button>
+                                          </tr>";
+
+                                            }
+                                            ?>
+
+                                            </tbody>
+                                        </table>
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                    <?php } ?>
+
+
                 </div>
             </div>
         </div>
     </div
 </div>
 
+
+<?php include_once "componentes/parte_foot.php" ?>
 
 </body>
 </html>

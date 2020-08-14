@@ -1,10 +1,7 @@
 <?php
 
 require_once "funciones/ayudante.php";
-
 require_once "modelo/modelo_pais.php";
-
-require_once  "modelo/modelo_ciudad.php";
 
 
 
@@ -12,7 +9,12 @@ require_once  "modelo/modelo_ciudad.php";
 
 $nombrepagina = "Pais";
 
-$nombrepais = "nombrepais" ?? "";
+
+
+
+$nombrepais = $_POST['nombrepais'] ?? "";
+
+
 
 
 try {
@@ -23,9 +25,11 @@ try {
     if ( isset($_POST['guardar_datos']) ) {
 
 
+
+
         //validar datos
-        if ( empty($nombre) ) {
-            throw new Exception("El nombre no puede estar vacio.");
+        if ( empty($nombrepais) ) {
+            throw new Exception("Debe dijitar un país.");
         }
 
 
@@ -34,14 +38,15 @@ try {
         $datos = compact('nombrepais');
 
 
-        //Insertar los dastos
-        $actorInsertado = insertarActores($conexion, $datos);
 
-        $mensaje = "Ocurrio un error al insertar los datos del actor";
+        //Insertar los dastos
+        $paisesInsertado = insertarpaises($conexion, $datos);
+
+        $_SESSION['mensaje'] = "LOS DATOS FUERON CREADO CORRECTAMENTE";
 
 
         //Lanzar un error si no se inserto correctamente
-        if ( ! $actorInsertado ) {
+        if ( ! $paisesInsertado ) {
             throw new Exception("Ocurri al insertar los datos del actor");
         }
 
@@ -52,12 +57,13 @@ try {
 
 } catch ( Exception  $e ) {
     $error = $e->getMessage();
+
 }
 
 
 
 
-
+//cargat datos de los modelos
 $paises = obtenerPaises($conexion);
 
 include_once "vista/vista_pais.php";

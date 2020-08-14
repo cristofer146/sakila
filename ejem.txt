@@ -1,0 +1,6 @@
+function obtenerDireciones($conexion, $datos)
+{
+ $sql = "INSERT INTO country (country_id, country, last_update) VALUE (:nombrepais, :paises, :paises);";
+
+    return $conexion->prepare($sql)->execute($datos);
+}

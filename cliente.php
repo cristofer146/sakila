@@ -18,6 +18,6 @@ require_once "modelo/modelo_direccion.php";
 
 
 $clientes = obtenerCliente($conexion);
-$informacionTiendas = obtenerInformacionTiendas($conexion);
+$informacionTiendas = obtenerTiendas($conexion);
 $direcciones = obtenerDirecciones($conexion);
 include_once "vista/vista_cliente.php";

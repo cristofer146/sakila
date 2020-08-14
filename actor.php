@@ -1,12 +1,17 @@
 <?php
 
+
+
 require_once "funciones/ayudante.php";
 require_once "modelo/modelo_actor.php";
 
-$nombrepagina = "Actor";
 
 
 // Declarar las variables
+$nombrepagina = "Actor";
+
+
+
 $idActor = $_POST['idActor'] ?? "";
 $nombreActor = $_POST['nombreActor'] ?? "";
 $apellidoActor = $_POST['apellidoActor'] ?? "";
@@ -20,14 +25,20 @@ try {
 // Asegurarnos de que el usuario haya hecho click en el boton Guardar
     if ( isset($_POST['guardar_actor']) ) {
 
+        $validaciones = [];
 
         //validar datos
         if ( empty($nombreActor) ) {
-            throw new Exception("El nombre no puede estar vacio.");
+            $validaciones ['errorNombre'] = ("El nombre no puede estar vacio.");
         }
 
         if ( empty($apellidoActor) ) {
-            throw new Exception("El apellido no puede estar vacio.");
+            $validaciones ['errorApellido'] = ("El apellido no puede estar vacio.");
+        }
+
+
+        if (!empty($validaciones)) {
+            throw new Exception("Verifique los mensajes de errores");
         }
 
         // Preparar el arrau con los datos
@@ -37,21 +48,31 @@ try {
             //Insertar los dastos
             $actorInsertado = insertarActores($conexion, $datos);
 
-            $mensaje = "Los datos fueron creados correctamente";
+            $_SESSION ['mensaje'] = "Los datos fueron creados correctamente.";
 
 
             //Lanzar un error si no se inserto correctamente
             if ( ! $actorInsertado ) {
-                throw new Exception("Ocurrio al insertar los datos del actor");
+                throw new Exception("Ocurrio un error al datos del actor");
             }
 
         } else {
+            //Agregar el id al array datos
+            $datos['idActor'] = $idActor;
+
+            //actualizar datos
+          $actorEditado = editarActores($conexion, $datos);
+          $_SESSION['mensaje'] = "Los datos fueron editados correctamente";
+
+          if (!$actorEditado) {
+          throw new Exception("ocurrio un error al editar los datos");
+          }
 
         }
 
 
         //Redirecciona la pagina
-        // redireccionar("actor.php");
+         redireccionar("actor.php");
     }
 
 
@@ -65,7 +86,7 @@ try {
             throw new Exception("El id del actor no puede estar vacio.");
         }
 
-        echo "11111";
+
 
         // Preparar el arrau con los datos
         $datos = compact('idActor');
@@ -74,7 +95,7 @@ try {
         //Insertar los dastos
         $eliminado = eliminarActores($conexion, $datos);
 
-        $mensaje = "Los datos fueron eliminados correctamente";
+        $_SESSION['mensaje'] =  "Los datos fueron eliminados correctamente";
 
 
         //Lanzar un error si no se inserto correctamente
