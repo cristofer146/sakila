@@ -15,7 +15,6 @@ require_once "modelo/modelo_ciudad.php";
 
     $idPais = $_POST['idPais'] ?? "";
 
-     imprimirArray($_POST);
 
 try {
     if (isset($_POST['guardar_datos'])) {
@@ -29,7 +28,7 @@ try {
 
         }
 
-        if (empty($idPais)) {
+        if ( empty($idPais) ) {
             throw new Exception("Debe de seleccionar un pais");
         }
 
@@ -38,10 +37,12 @@ try {
 
         $ciudadIncertada = insertarCiudades($conexion, $datos);
 
-        if (!$ciudadIncertada) {
+        $_SESSION ['mensaje'] = "Los datos fueron creados correctamente.";
+
+
+        if ( ! $ciudadIncertada ) {
             throw new Exception("Ocurrio un error al insertar los datos del actor");
         }
-
 
 
         // Redireccionar la pagina

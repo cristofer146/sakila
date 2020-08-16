@@ -31,12 +31,14 @@
 
                         <div class="mb-3">
                             <label for="titulo">Titulo:</label>
-                            <input type="text" name="titulo" id="titulo" class="form-control">
+                            <input type="text" name="titulo" id="titulo" class="form-control"
+                                   placeholder="Escribe un titulo">
                         </div>
 
                         <div class="mb-3">
                             <label for="descripcion">Descripción</label>
-                            <input type="text" name="descripcion" id="descripcion" class="form-control">
+                            <input type="text" name="descripcion" id="descripcion" class="form-control"
+                                   placeholder="Escribe una descripcion">
                         </div>
 
 
@@ -106,22 +108,26 @@
 
                         <div class="mb-3">
                             <label for="duracion">Duración de renta:</label>
-                            <input type="tel" name="duracion" id="duracion" class="form-control">
+                            <input type="tel" name="duracion" id="duracion" class="form-control"
+                                   placeholder="Escribe duracion de renta">
                         </div>
 
                         <div class="mb-3">
                             <label for="tasaArredamiento">Tasa de arrendamiento:</label>
-                            <input type="text" name="tasaArredamiento" id="tasaArredamiento" class="form-control">
+                            <input type="text" name="tasaArredamiento" id="tasaArredamiento" class="form-control"
+                                   placeholder="Escribe la taza de arrendamiento">
                         </div>
 
                         <div class="mb-3">
                             <label for="tamano">Tamaño:</label>
-                            <input type="text" name="tamano" id="tamano" class="form-control">
+                            <input type="text" name="tamano" id="tamano" class="form-control"
+                                   placeholder="Escribe un tamaño">
                         </div>
 
                         <div class="mb-3">
                             <label for="costoreemplazo">Costo de reemplazo:</label>
-                            <input type="text" name="" id="costoreemplazo" class="form-control">
+                            <input type="text" name="" id="costoreemplazo" class="form-control"
+                                   placeholder="Escribe un costo de reemplazo">
                         </div>
 
                         <div class="mb-3">

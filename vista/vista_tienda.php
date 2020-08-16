@@ -32,16 +32,16 @@
                     <form action="" method="post">
 
                         <div class="mb-3">
-                            <label for="nombregerente">Gerente personal</label>
-                            <select name="nombregetente" id="nombregerente" class="form-select">
-                                <option value="">Seleccione un gerente:</option>
+                            <label for="nombreTienda">Gerente personal</label>
+                            <select name="nombreTienda" id="nombreTienda" class="form-select">
+                                <option>Seleccione un gerente:</option>
 
 
                                 <?php
 
-                                foreach ($gerente as $gerentes) {
+                                foreach ( $gerentes as $gerente ) {
 
-                                    echo "<option value=\"{$gerentes["firt_name"]}\">{$gerentes["last_name"]}</option>";
+                                    echo "<option value=\"{$gerente["staff_id"]}\">{$gerente["last_name"]}</option>";
                                 }
 
 
@@ -53,7 +53,7 @@
                         <div class="mb-4">
                             <label for="nombreDireccion">Direccion:</label>
                             <select name="nombreDireccion" id="nombreDireccion" class="form-select">
-                                <option value="">Listado de direcciones:</option>
+                                <option>Listado de direcciones:</option>
 
                                 <?php
 
@@ -72,7 +72,8 @@
 
                         <div class="mb-4">
 
-                            <button type="submit" name="guardar_datos" class="btn btn-primary">Guardar</button>
+                            <button type="submit" name="guardar_datos" class="btn btn-primary">Guardar los datos
+                            </button>
                         </div>
 
                     </form>
@@ -85,34 +86,38 @@
             <?php include_once "componentes/parte_navebar.php"; ?>
 
             <hr>
-                          <div class="col-md-12">
+            <div class="col-md-12">
 
-                            <table class="table">
+                <table class="table">
 
-                                <thead>
-                                <th>ID de la tienda</th>
-                                <th>Gerente de la tienda</th>
-                                <th>Direccion de la tienda</th>
-
-                                </thead>
-
-
-                                <tbody>
-
-                                <?php
-
-                                foreach ($informacionTiendas as $infotienda) {
+                    <thead>
+                    <th>ID de la tienda</th>
+                    <th>Gerente de la tienda</th>
+                    <th>Direccion de la tienda</th>
+                    <th>Acciones</th>
 
 
-                                    echo "
+                    </thead>
+
+
+                    <tbody>
+
+                    <?php
+
+                    foreach ( $tiendas as $tienda ) {
+
+
+                        echo "
                                            <tr>
             
-                                        <td>{$infotienda['store_id']} </td>
+                                        <td>{$tienda['store_id']} </td>
             
-                                        <td> {$infotienda['first_name']}</td>
+                                        <td> {$tienda['first_name']}</td>
             
-                                        <td>{$infotienda['address']} </td>
-            
+                                        <td>{$tienda['address']} </td>
+                                        <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$tienda['store_id']}'> <i class='fas fa-trash'></i></button>
+                                        <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$tienda['store_id']}'><i class='fas fa-pen'></i></button>
+                                         </td>
                                         </tr>";
 
                                 }

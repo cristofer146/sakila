@@ -5,7 +5,7 @@
 
 <!-- Barra superior -->
 
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-primary">
     <a class="navbar-brand" href="#">
         <img src="static/img/descarga.jpg" width="30" height="30" class="d-inline-block align-top"
              alt="">

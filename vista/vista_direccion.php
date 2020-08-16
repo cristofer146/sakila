@@ -72,9 +72,9 @@
 
                         <div class="mb-3">
                             <label for="telefono">Teléfono</label>
-                            <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="Telefono de tu pais">
+                            <input type="tel" name="telefono" id="telefono" class="form-control"
+                                   placeholder="Telefono de tu pais">
                         </div>
-
 
 
                         <div class="mb-3">
@@ -84,37 +84,47 @@
                     </form>
 
 
-                    <div class="row">
-                        <div class="col-md-13">
+                    <?php
+                    if ( empty($Direcciones) ) {
 
-                            <table class="table table-hover">
-                                <thead>
-
-                                <th scope="col">ID de dirección</th>
-
-                                <th scope="col">Nombre de dirección</th>
-
-                                <th scope="col">Derección numero 2</th>
-
-                                <th scope="col">Distrito</th>
-
-                                <th scope="col">Cuidad</th>
-
-                                <th scope="col">postal_code</th>
-
-                                <th scope="col">phone</th>
+                        include_once "componentes/parte_empty.php";
 
 
-
-                                </thead>
-                                <tbody>
+                    } else { ?>
 
 
-                                <?php
+                        <div class="row">
+                            <div class="col-md-13">
+                                <form action="" method="post">
+                                    <table class="table table-hover">
+                                        <thead>
 
-                                foreach ($direcciones as $Direccion) {
+                                        <th scope="col">ID de dirección</th>
 
-                                    echo "<tr>
+                                        <th scope="col">Nombre de dirección</th>
+
+                                        <th scope="col">Derección numero 2</th>
+
+                                        <th scope="col">Distrito</th>
+
+                                        <th scope="col">Cuidad</th>
+
+                                        <th scope="col">postal_code</th>
+
+                                        <th scope="col">phone</th>
+
+                                        <th scope="col">Acciones</th>
+
+
+                                        </thead>
+                                        <tbody>
+
+
+                                        <?php
+
+                                        foreach ( $direcciones as $Direccion) {
+
+                                            echo "<tr>
                                   <th scope=\"row\">{$Direccion['address_id']}</th>
                               
                                     <td>{$Direccion['address']}</td>
@@ -123,22 +133,24 @@
                                     <td>{$Direccion['city_id']}</td>
                                     <td>{$Direccion['postal_code']}</td>
                                     <td>{$Direccion['phone']}</td>
-                                    
+                                     <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$Direccion['address_id']}'> <i class='fas fa-trash'></i></button>
+                                     <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$Direccion['address_id']}'><i class='fas fa-pen'></i></button>
+                                     </td>
                                      
                                     
                                   </tr>";
 
-                                }
-                                ?>
+                                        }
+                                        ?>
 
-                                </tbody>
-                            </table>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+
 
                         </div>
-
-
-                    </div>
-
+                    <?php } ?>
                 </div>
 
             </div>

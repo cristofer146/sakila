@@ -16,7 +16,7 @@ $nombreTienda = $_POST['nombreTienda'] ?? "";
 $nombreDireccion = $_POST['nombreDireccion'] ?? "";
 
 
-imprimirArray($_POST);
+
 
 try {
 
@@ -43,6 +43,7 @@ try {
 
 
         $TiendasInsertada = insertarTiendas($conexion, $datos);
+
         $_SESSION['mensaje'] = "LOS DATOS FUERON CREADO CORRECTAMENTE";
 
 
@@ -63,8 +64,8 @@ try {
 
 
 $direcciones = obtenerDirecciones($conexion);
-$informacionTiendas = obtenerInformacion($conexion);
-$gerente = obtenerGerente($conexion);
+$tiendas = obtenerTienda($conexion);
+$gerentes = obtenerGerente($conexion);
 
 //incluir la vista
 include_once "vista/vista_tienda.php";

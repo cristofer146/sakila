@@ -62,7 +62,8 @@ try {
 
             //actualizar datos
           $actorEditado = editarActores($conexion, $datos);
-          $_SESSION['mensaje'] = "Los datos fueron editados correctamente";
+
+            $_SESSION['mensaje'] = "Los datos fueron editados correctamente";
 
           if (!$actorEditado) {
           throw new Exception("ocurrio un error al editar los datos");

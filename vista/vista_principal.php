@@ -1,6 +1,7 @@
 <?php include_once "componentes/comp_head.php"; ?>
 
-<body xmlns="http://www.w3.org/1999/html">
+<body background="https://previews.123rf.com/images/maxkabakov/maxkabakov1605/maxkabakov160501459/56887832-concepto-de-programaci%C3%B3n-php-pixelado-de-texto-azul-sobre-fondo-de-pared-digital-con-c%C3%B3digo-binario.jpg">
+
 
 <!-- barra superior -->
 <nav class="navbar navbar-light bg-primary">

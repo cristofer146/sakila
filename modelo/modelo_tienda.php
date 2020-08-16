@@ -13,7 +13,7 @@ function obtenerTiendas($conexion)
 }
 
 
-function obtenerInformacion($conexion)
+function obtenerTienda($conexion)
 {
     $sql = "select sto.store_id, sto.manager_staff_id, sto.address_id, sta.first_name, a.address
 
@@ -23,9 +23,9 @@ left join address as a on sto.address_id = a.address_id;";
     return $conexion->query($sql)->fetchAll();
 }
 
-function insertarTiendas ($conexion, $datos)
+function insertarTiendas($conexion, $datos)
 {
-  $sql =  "INSERT INTO store ( manager_staff_id, address_id ) VALUES (:nombreTienda, :nombreDireccion);";
+    $sql = "INSERT INTO store ( manager_staff_id, address_id ) VALUES (:nombreTienda, :nombreDireccion);";
 
     return $conexion->prepare($sql)->execute($datos);
 

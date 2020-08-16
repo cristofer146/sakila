@@ -114,6 +114,8 @@
 
                         <th scope="col">Fecha de creación</th>
 
+                        <th scope="col">Acciones</th>
+
 
                         </thead>
                         <tbody>
@@ -137,14 +139,11 @@
                                     <td>" . ucwords(strtolower($cliente['name'])) . "</td>
                                     <td>{$cliente['email']}</td>
                                     <td>{$cliente['address']}</td>
-                                    <td>
-                                    {$cliente['activo']}
-                                    
-                                   {$icono}
-                                   
-                                    
-                                    </td>
+                                    <td>{$cliente['activo']}{$icono}</td>
                                     <td>{$cliente['fecha']}</td>
+                                     <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$cliente['customer_id']}'> <i class='fas fa-trash'></i></button>
+                                     <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$cliente['customer_id']}'><i class='fas fa-pen'></i></button>
+                                     </td>
                                     
                                      
                                      

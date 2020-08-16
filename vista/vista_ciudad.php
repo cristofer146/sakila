@@ -25,8 +25,18 @@
                     <form action="" method="post">
                         <div class="mb-3">
                             <label for="nombreCiudad">Nombre de la ciudad </label>
-                            <input type="text" name="nombreCiudad" id="nombreCiudad" class="form-control"
+                            <input type="text" name="nombreCiudad" id="nombreCiudad"
+                                   class="form-control   <?php echo isset($validaciones['errorUsuario']) ? 'is-invalid' : ''; ?>"
                                    placeholder="Escribe el nombre de tu ciudad">
+                            <?= $nombreUsuario ?>">
+                            <div class="invalid-feedback">
+                                <?php
+                                if ( isset($validaciones['errorUsuario']) ) {
+                                    echo $validaciones['errorUsuario'];
+
+                                }
+                                ?>
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -70,32 +80,10 @@
 
                     </form>
 
-
-                    <?php
-
-                    if (isset($error)) {
-                            echo "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
-                            {$error}
-                            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
-                            </button>
-                        </div>";
-                    }
+                    <?php include_once "componentes/parte_navebar.php" ?>
 
 
-                    if (isset($ciudadIncertada)) {
-                        echo "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">
-                                Los datos del ciudad se han insertado correctamente.  
-                             <button type=\"button\" class=\"close\" data-dismiss=\'alert\' aria-label=\"close\">
-                              <span aria-hidden=\"true\">&times;</span>
-                             </button>
-                              </div>";
 
-
-                    }
-
-
-                    ?>
 
 
 
@@ -108,6 +96,7 @@
 
                     } else { ?>
 
+
                         <div class="row">
                             <div class="col-md-13">
 
@@ -117,6 +106,7 @@
                                     <th scope="col">ID de la ciudad</th>
                                     <th scope="col">Nombre de la ciuda</th>
                                     <th scope="col">Nombre del pais</th>
+                                    <th scope="col">Acciones</th>
                                     </thead>
                                     <tbody>
 
@@ -129,6 +119,10 @@
                               <th scope=\"row\">{$ciudad['city_id']}</th>
                               <td>{$ciudad['city']}</td>
                               <td>{$ciudad['country']}</td>
+                              
+                             <td><button class='btn btn-outline-danger btn-sm' title='Eliminar actor' name='eliminarActor' value='{$ciudad['city_id']}'> <i class='fas fa-trash'></i></button>
+                             <button class='btn btn-outline-info btn-sm' title='Editar actor' name='editarActor' value='{$ciudad['city_id']}'><i class='fas fa-pen'></i></button>
+                             </td>
                               </tr>";
 
                                     }

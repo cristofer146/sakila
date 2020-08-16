@@ -3,7 +3,8 @@
 
 $paginasMenu = [
 
-    "index"     => ["Inicio", "fas fa-home"],
+
+    "index"     => ["Inicio", "fas fa-home", ""],
     "actor"     => ["Actor", "fas fa-user"],
     "direccion" => ["Dirección", "fas fa-compass"],
     "ciudad"    => ["Ciudad", "fas fa-city"],
@@ -32,7 +33,7 @@ foreach ($paginasMenu as $nombreArchivo => $item) {
 
 }
 
-?>
+
 
 
 
